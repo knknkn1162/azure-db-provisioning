@@ -1,0 +1,10 @@
+subscription_id="***"
+rg_location="japaneast"
+vnet_cidr="10.0.0.0/16"
+db_cidr="10.0.0.0/24"
+db_password = "***"
+db_version = "12.0"
+db_name="mydb"
+db_size = 128
+db_sku = "S0"
+client_vm_spec="Standard_B2s"
