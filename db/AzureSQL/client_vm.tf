@@ -5,7 +5,7 @@ locals {
 }
 
 module "client_vm" {
-  source = "../lib/vm/ubuntu"
+  source = "../../lib/vm/ubuntu"
   admin_name = local.vm_admin_name
   rg_name = module.resource_group.name
   rg_location = module.resource_group.location
@@ -33,7 +33,7 @@ EOF
 }
 
 module "nic4db" {
-  source = "../lib/public_nic"
+  source = "../../lib/public_nic"
   rg_name = module.resource_group.name
   rg_location = module.resource_group.location
   subnet_id = module.subnets.ids["db"]

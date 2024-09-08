@@ -1,5 +1,5 @@
 module "random" {
-  source = "../lib/random"
+  source = "../../lib/random"
   length = 12
 }
 
