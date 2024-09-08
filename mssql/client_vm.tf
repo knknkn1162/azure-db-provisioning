@@ -24,7 +24,7 @@ sudo ACCEPT_EULA=Y apt-get install -y mssql-tools18 unixodbc-dev
 echo 'export PATH="$PATH:/opt/mssql-tools18/bin"' >> ~/.bash_profile
 echo 'export PATH="$PATH:/opt/mssql-tools18/bin"' >> ~/.bashrc
 source ~/.bashrc
-## check mssql connection
+## inject SQL queries
 sqlcmd -S ${local.db_prefix}.database.windows.net,1433 -U adminuser -P ${var.db_password} -C <<-EOT
 ${local.sql_script}
 EOT
