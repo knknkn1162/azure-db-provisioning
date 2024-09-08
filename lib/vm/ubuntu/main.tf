@@ -65,7 +65,3 @@ resource "azurerm_linux_virtual_machine" "example" {
     version   = "latest"
   }
 }
-
-output "user_data" {
-  value = var.user_data
-}
