@@ -1,0 +1,23 @@
+variable "rg_location" {
+  type = string
+}
+
+variable "vnet_cidr" {
+  type = string
+}
+
+variable "db_cidr" {
+  type = string
+}
+
+variable "db_vm_spec" {
+  type = string
+}
+
+variable "vm_os_disk_type" {
+  type = string
+}
+
+variable "db_password" {
+  type = string
+}

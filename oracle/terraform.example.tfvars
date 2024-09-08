@@ -1,0 +1,6 @@
+rg_location="japaneast"
+vnet_cidr="10.0.0.0/16"
+db_cidr="10.0.0.0/24"
+db_vm_spec="Standard_D4s_v3"
+vm_os_disk_type="StandardSSD_LRS"
+db_password = "***"
