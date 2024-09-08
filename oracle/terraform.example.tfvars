@@ -1,3 +1,4 @@
+subscription_id="***"
 rg_location="japaneast"
 vnet_cidr="10.0.0.0/16"
 db_cidr="10.0.0.0/24"
