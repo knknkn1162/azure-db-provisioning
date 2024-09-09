@@ -36,6 +36,7 @@ sudo apt install -y docker.io
 sudo chmod 0666 /var/run/docker.sock
 docker run -p ${local.db_port}:${local.db_port} -d -e POSTGRES_USER=${local.admin_name} -e POSTGRES_DB=${var.db_name} -e POSTGRES_PASSWORD=${var.db_password} postgres:${var.db_version}
 sudo apt-get install -y postgresql-client
+sleep 30
 PGPASSWORD=${var.db_password} psql -h ${local.db_public_ip} -p ${local.db_port} -U ${local.admin_name} ${var.db_name} <<-EOT
 ${local.sql_script}
 EOT
