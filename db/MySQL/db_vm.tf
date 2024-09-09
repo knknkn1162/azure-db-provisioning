@@ -1,6 +1,5 @@
 locals {
   db_vm_password = var.db_password
-  db_vm_os_disk_type = var.vm_os_disk_type
   sql_script = file("init.sql")
   admin_name = "adminuser"
 }
@@ -14,7 +13,7 @@ module "db_vm" {
   nic_id =  module.nic4db.id
   user_data = local.user_data
   password = local.db_vm_password
-  os_disk_type = local.db_vm_os_disk_type
+  os_disk_type = var.db_vm_os_disk_type
   os_disk_size = 128
 }
 

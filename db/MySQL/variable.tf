@@ -30,6 +30,6 @@ variable "db_vm_spec" {
   type = string
 }
 
-variable "vm_os_disk_type" {
+variable "db_vm_os_disk_type" {
   type = string
 }
