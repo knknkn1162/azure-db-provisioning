@@ -14,18 +14,18 @@ module "client_vm" {
   password = local.client_vm_password
   os_disk_type = "Standard_LRS"
   os_disk_size = 64
-  user_data = <<-EOF
+  user_data = <<-EO
 #!/bin/bash
 ## install sqlcmd for SQL Server
 curl https://packages.microsoft.com/keys/microsoft.asc | sudo tee /etc/apt/trusted.gpg.d/microsoft.asc
 curl https://packages.microsoft.com/config/ubuntu/22.04/prod.list | sudo tee /etc/apt/sources.list.d/mssql-release.list
 sudo apt-get update
 sudo ACCEPT_EULA=Y apt-get install -y mssql-tools18 unixodbc-dev
+echo 'export PATH="$PATH:/opt/mssql-tools18/bin"' >> /home/${local.admin_name}/.bash_profile
 echo 'export PATH="$PATH:/opt/mssql-tools18/bin"' >> ~/.bash_profile
-echo 'export PATH="$PATH:/opt/mssql-tools18/bin"' >> ~/.bashrc
-source ~/.bashrc
+source ~/.bash_profile
 ## inject SQL queries
-sqlcmd -S ${local.db_prefix}.database.windows.net,1433 -U ${local.admin_name} -d ${var.db_name} -P ${var.db_password} -C <<-EOT
+/opt/mssql-tools18/bin/sqlcmd -S ${local.db_prefix}.database.windows.net,1433 -U ${local.admin_name} -d ${var.db_name} -P ${var.db_password} -C <<-EOT
 ${local.sql_script}
 EOT
 EOF
