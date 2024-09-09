@@ -12,6 +12,6 @@ terraform apply
 + [x] Oracle
 + [ ] (vanilla) SQL Server
 + [ ] MySQL
-+ [ ] PostgreSQL
++ [x] PostgreSQL
 + [ ] DB2(IBM database)
 + [ ] MongoDB
