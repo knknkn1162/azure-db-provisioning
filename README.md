@@ -9,9 +9,9 @@ terraform apply
 # todo
 
 + [x] AzureSQL
+  + [ ] (vanilla) SQL Server
 + [x] Oracle
-+ [ ] (vanilla) SQL Server
-+ [ ] MySQL
++ [x] MySQL
 + [x] PostgreSQL
 + [ ] DB2(IBM database)
 + [ ] MongoDB
