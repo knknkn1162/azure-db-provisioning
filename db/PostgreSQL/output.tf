@@ -1,3 +1,3 @@
 output "fqdn" {
-  value = azurerm_postgresql_server.example.fqdn
+  value = azurerm_postgresql_flexible_server.example.fqdn
 }
