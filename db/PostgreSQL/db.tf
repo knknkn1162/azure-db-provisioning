@@ -23,6 +23,8 @@ resource "azurerm_postgresql_server" "example" {
   storage_mb = var.db_size_mb
   public_network_access_enabled    = true
   ssl_enforcement_enabled          = false
+  # ssl_minimal_tls_version_enforced must be set to TLSEnforcementDisabled when ssl_enforcement_enabled is set to false.
+  ssl_minimal_tls_version_enforced = "TLSEnforcementDisabled"
 }
 
 resource "azurerm_postgresql_database" "example" {
