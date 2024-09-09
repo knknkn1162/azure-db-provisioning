@@ -24,8 +24,8 @@ ${local.sql_script}
 EOT
 EOF
   depends_on = [
-    azurerm_postgresql_database.example,
-    azurerm_postgresql_firewall_rule.example,
+    azurerm_postgresql_flexible_server.example,
+    azurerm_postgresql_flexible_server_firewall_rule.example,
   ]
 }
 
