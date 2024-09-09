@@ -2,6 +2,7 @@ locals {
   client_vm_password = var.db_password
   sql_script = file("init.sql")
   vm_admin_name = local.admin_name
+  db_port=1433
 }
 
 module "client_vm" {
@@ -25,7 +26,7 @@ echo 'export PATH="$PATH:/opt/mssql-tools18/bin"' >> /home/${local.admin_name}/.
 echo 'export PATH="$PATH:/opt/mssql-tools18/bin"' >> ~/.bash_profile
 source ~/.bash_profile
 ## inject SQL queries
-/opt/mssql-tools18/bin/sqlcmd -S ${local.db_prefix}.database.windows.net,1433 -U ${local.admin_name} -d ${var.db_name} -P ${var.db_password} -C <<-EOT
+/opt/mssql-tools18/bin/sqlcmd -S ${local.db_prefix}.database.windows.net,${local.db_port} -U ${local.admin_name} -d ${var.db_name} -P ${var.db_password} -C <<-EOT
 ${local.sql_script}
 EOT
 EOF
