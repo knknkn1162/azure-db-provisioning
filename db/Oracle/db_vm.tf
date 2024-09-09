@@ -41,7 +41,7 @@ sudo apt install -y docker.io
 sudo chmod 0666 /var/run/docker.sock
 # -d: daemon
 docker run -d  -p ${local.db_port}:${local.db_port} -p ${local.db_em_port}:${local.db_em_port} \
-  -e PWD=${var.db_password} --name ${local.container_name} ${local.docker_image}
+  -e ORACLE_PWD=${var.db_password} --name ${local.container_name} ${local.docker_image}
 sleep ${local.wait_time}
 ID=`docker container inspect ${local.container_name} --format={{.Id}}`
 docker exec $ID /bin/bash -c "sqlplus ${local.username}/${var.db_password}@${local.servicename} <<-EOT

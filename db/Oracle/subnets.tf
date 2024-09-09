@@ -6,3 +6,14 @@ module "subnets" {
     "db" = var.db_cidr
   }
 }
+
+module "inbound_nsg" {
+  source = "../../lib/inbound_nsg"
+  rg_location = module.resource_group.location
+  rg_name = module.resource_group.name
+  subnet_id = module.subnets.ids["db"]
+  dst_port2priority = {
+    "1521" = 100
+    "22" = 110
+  }
+}
