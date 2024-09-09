@@ -14,7 +14,7 @@ module "client_vm" {
   password = local.client_vm_password
   os_disk_type = "Standard_LRS"
   os_disk_size = 64
-  user_data = <<-EO
+  user_data = <<-EOF
 #!/bin/bash
 ## install sqlcmd for SQL Server
 curl https://packages.microsoft.com/keys/microsoft.asc | sudo tee /etc/apt/trusted.gpg.d/microsoft.asc
