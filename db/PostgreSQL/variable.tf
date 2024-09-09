@@ -36,3 +36,11 @@ variable "db_password" {
 variable "client_vm_spec" {
   type = string
 }
+
+variable "vm_os_disk_type" {
+  type = string
+}
+
+variable "db_vm_spec" {
+  type = string
+}
