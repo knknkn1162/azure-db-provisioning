@@ -22,7 +22,7 @@ locals {
 module "pip" {
   source = "../pip"
   rg_location = var.rg_location
-  rg_name = var.rg_location
+  rg_name = var.rg_name
   domain_prefix = var.domain_prefix
 }
 
