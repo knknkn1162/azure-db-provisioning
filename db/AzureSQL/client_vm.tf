@@ -25,11 +25,14 @@ echo 'export PATH="$PATH:/opt/mssql-tools18/bin"' >> ~/.bash_profile
 echo 'export PATH="$PATH:/opt/mssql-tools18/bin"' >> ~/.bashrc
 source ~/.bashrc
 ## inject SQL queries
-sqlcmd -S ${local.db_prefix}.database.windows.net,1433 -U adminuser -P ${var.db_password} -C <<-EOT
+sqlcmd -S ${local.db_prefix}.database.windows.net,1433 -U ${local.admin_name} -d ${var.db_name} -P ${var.db_password} -C <<-EOT
 ${local.sql_script}
 EOT
 EOF
-  depends_on = [ azurerm_mssql_database.example ]
+  depends_on = [
+    azurerm_mssql_database.example,
+    azurerm_mssql_virtual_network_rule.example,
+  ]
 }
 
 module "nic4db" {

@@ -7,10 +7,17 @@ variable "length" {
   type = string
 }
 
+variable "is_upper" {
+  type = bool
+  default = true
+}
+
 resource "random_string" "random" {
   length           = var.length
-  special          = true
+  special          = length(var.override_special) != 0
   override_special = var.override_special
+  upper = var.is_upper
+
 }
 
 output "result" {

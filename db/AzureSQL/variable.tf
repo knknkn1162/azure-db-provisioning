@@ -25,10 +25,6 @@ variable "db_name" {
   type = string
 }
 
-variable "db_size" {
-  type = number
-}
-
 variable "db_sku" {
   type = string
 }
